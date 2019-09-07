@@ -1,9 +1,9 @@
 class Television {
-    int brightness;
-    int volume;
-    int channelSelected;
-    String manufacturer;
-    int serialNumber;
+    private int brightness;
+    private int volume;
+    private int channelSelected;
+    private String manufacturer;
+    private int serialNumber;
 
     public int getBrightness() {
         return this.brightness;
