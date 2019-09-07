@@ -14,6 +14,17 @@ class Television {
     }
 
     public void setStatus(int status) {
+        switch (status) {
+        case 0:
+            System.out.println("\n\nDesligando... \n\n");
+            break;
+        case 1:
+            System.out.println("\n\nLigando... \n\n");
+            break;
+        case 2:
+            System.out.println("\n\nEntrando em standby... \n\n");
+
+        }
         this.status = status;
     }
 
