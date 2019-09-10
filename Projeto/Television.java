@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.*;
+
 class Television {
     /*
      * 0 - Desligada 1 - Ligada 2 - standby
@@ -8,6 +11,7 @@ class Television {
     private int channelSelected;
     private String manufacturer;
     private int serialNumber;
+    private List<Channel> channels = new ArrayList<Channel>();
 
     public int getStatus() {
         return this.status;
@@ -26,6 +30,14 @@ class Television {
 
         }
         this.status = status;
+    }
+
+    public List<Channel> getChannels() {
+        return this.channels;
+    }
+
+    public void setChannels(Channel channel) {
+        this.channels.add((Channel) channel);
     }
 
     public int getBrightness() throws Exception {
