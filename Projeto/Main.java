@@ -3,12 +3,13 @@ import java.util.*;
 
 class Main {
     public static void main(String[] args) {
-
         Television tv = new Television();
 
         Channel ch1 = new Channel();
         Channel ch2 = new Channel();
+        Channel ch3 = new Channel();
         List<Channel> channels = new ArrayList<Channel>();
+        List<Channel> channelsAllowed = new ArrayList<Channel>();
 
         ch1.setName("Globo");
         ch1.setLive(1);
@@ -24,17 +25,30 @@ class Main {
         ch2.setSignalStrength("NENHUM");
         ch2.setSubtitle(0);
 
+        ch3.setName("SBT");
+        ch3.setLive(1);
+        ch3.setNumber(12);
+        ch3.setStatus(1);
+        ch3.setSignalStrength("NENHUM");
+        ch3.setSubtitle(0);
+
         channels.add(ch1);
         channels.add(ch2);
+        channels.add(ch3);
+
+        channelsAllowed.add(ch3);
+        channelsAllowed.add(ch2);
+
+        Antenna antenna = new Antenna(channelsAllowed);
 
         try {
             tv.setStatus(1);
+            tv.setAntenna(antenna);
             tv.setBrightness(50);
-            tv.setChannelSelected(0);
+            tv.setChannelSelected(ch1);
             tv.setManufacturer("Samsung");
             tv.setSerialNumber(155877454);
             tv.setVolume(30);
-            tv.setChannels(channels);
 
             System.out.print("Informações da sua televisão \n\n");
             System.out.println("Volume: " + tv.getVolume());
@@ -44,7 +58,7 @@ class Main {
             System.out.println("Número de série: " + tv.getSerialNumber());
             System.out.println("Fabricante: " + tv.getManufacturer());
             System.out.println("Canais: \n");
-            for (Channel channel : tv.getChannels()) {
+            for (Channel channel : tv.getAntenna().getChannelsAllowed()) {
                 System.out.print(channel.getName() + "\n\n");
                 if (channel.getLive() == 1) {
                     System.out.println("AO VIVO\n\n");

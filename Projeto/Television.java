@@ -8,10 +8,18 @@ class Television {
     private int status;
     private int brightness;
     private int volume;
-    private int channelSelected;
+    private Channel channelSelected;
     private String manufacturer;
     private int serialNumber;
-    private List<Channel> channels = new ArrayList<Channel>();
+    private Antenna antenna;
+
+    public Antenna getAntenna() {
+        return this.antenna;
+    }
+
+    public void setAntenna(Antenna antenna) {
+        this.antenna = antenna;
+    }
 
     public int getStatus() {
         return this.status;
@@ -30,14 +38,6 @@ class Television {
 
         }
         this.status = status;
-    }
-
-    public List<Channel> getChannels() {
-        return this.channels;
-    }
-
-    public void setChannels(List<Channel> channels) {
-        this.channels = channels;
     }
 
     public int getBrightness() throws Exception {
@@ -68,18 +68,18 @@ class Television {
         this.volume = volume;
     }
 
-    public int getChannelSelected() throws Exception {
-        if (this.getStatus() == 0) {
-            throw new Exception("Televisão desligada !");
-        }
+    public Channel getChannelSelected() {
         return this.channelSelected;
     }
 
-    public void setChannelSelected(int channelSelected) throws Exception {
+    public void setChannelSelected(Channel channel) throws Exception {
         if (this.getStatus() == 0) {
             throw new Exception("Televisão desligada !");
         }
-        this.channelSelected = channelSelected;
+        if (!this.antenna.isChannelAvailable(channel)) {
+            throw new Exception("Canal não disponibilizado pela sua operadora !");
+        }
+        this.channelSelected = channel;
     }
 
     public String getManufacturer() throws Exception {
