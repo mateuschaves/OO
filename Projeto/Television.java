@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.*;
-
 class Television {
     /*
      * 0 - Desligada 1 - Ligada 2 - standby
@@ -77,7 +74,7 @@ class Television {
             throw new Exception("Televisão desligada !");
         }
         if (!this.antenna.isChannelAvailable(channel)) {
-            throw new Exception("Canal não disponibilizado pela sua operadora !");
+            throw new Exception("Canal fora do ar ou não disponibilizado pela sua operadora !");
         }
         this.channelSelected = channel;
     }

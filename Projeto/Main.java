@@ -28,7 +28,7 @@ class Main {
         ch3.setName("SBT");
         ch3.setLive(1);
         ch3.setNumber(12);
-        ch3.setStatus(1);
+        ch3.setStatus(0);
         ch3.setSignalStrength("NENHUM");
         ch3.setSubtitle(0);
 
@@ -45,7 +45,7 @@ class Main {
             tv.setStatus(1);
             tv.setAntenna(antenna);
             tv.setBrightness(50);
-            tv.setChannelSelected(ch1);
+            tv.setChannelSelected(ch3);
             tv.setManufacturer("Samsung");
             tv.setSerialNumber(155877454);
             tv.setVolume(30);

@@ -10,7 +10,7 @@ class Antenna {
 
     public Boolean isChannelAvailable(Channel channel) {
         for (Channel c : channelsAllowed) {
-            if (c.getNumber() == channel.getNumber()) {
+            if (c.getNumber() == channel.getNumber() && c.getStatus() == 1) {
                 return true;
             }
         }
