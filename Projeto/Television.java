@@ -36,8 +36,8 @@ class Television {
         return this.channels;
     }
 
-    public void setChannels(Channel channel) {
-        this.channels.add((Channel) channel);
+    public void setChannels(List<Channel> channels) {
+        this.channels = channels;
     }
 
     public int getBrightness() throws Exception {

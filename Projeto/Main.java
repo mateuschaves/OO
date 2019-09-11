@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.*;
+
 class Main {
     public static void main(String[] args) {
 
@@ -5,6 +8,7 @@ class Main {
 
         Channel ch1 = new Channel();
         Channel ch2 = new Channel();
+        List<Channel> channels = new ArrayList<Channel>();
 
         ch1.setName("Globo");
         ch1.setLive(1);
@@ -20,6 +24,9 @@ class Main {
         ch2.setSignalStrength("NENHUM");
         ch2.setSubtitle(0);
 
+        channels.add(ch1);
+        channels.add(ch2);
+
         try {
             tv.setStatus(1);
             tv.setBrightness(50);
@@ -27,8 +34,7 @@ class Main {
             tv.setManufacturer("Samsung");
             tv.setSerialNumber(155877454);
             tv.setVolume(30);
-            tv.setChannels(ch1);
-            tv.setChannels(ch2);
+            tv.setChannels(channels);
 
             System.out.print("Informações da sua televisão \n\n");
             System.out.println("Volume: " + tv.getVolume());
